@@ -3,11 +3,90 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.myspringboot.commonspringboot</groupId>
     <artifactId>commonspring-boot-build</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>commonspring-boot-bom</module>
+        <module>commonspring-boot-parent</module>
+        <module>commonspring-boot-project</module>
+    </modules>
     <packaging>pom</packaging>
 
-    <dependencies></dependencies>
+    <url>https://github.com/yuzongyou/commonspring-boot/</url>
+
+    <properties>
+        <main.basedir>${basedir}</main.basedir>
+        <commonproject.version>1.0-SNAPSHOT</commonproject.version>
+        <spring.boot.version>2.0.3.RELEASE</spring.boot.version>
+        <slf4j.version>1.7.25</slf4j.version>
+    </properties>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>yuzongyou</name>
+            <email>yuzongyou3@163.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:https://github.com/yuzongyou/commonspring-boot.git</connection>
+        <developerConnection>scm:https://github.com/yuzongyou/commonspring-boot.git
+        </developerConnection>
+        <url>https://github.com/yuzongyou/commonspring-boot.git</url>
+    </scm>
+
+    <issueManagement>
+        <system>Git</system>
+        <url>https://github.com/yuzongyou/commonspring-boot/issues</url>
+    </issueManagement>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestone</id>
+            <name>Spring Milestone</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-snapshot</id>
+            <name>Spring Snapshot</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
 </project>
