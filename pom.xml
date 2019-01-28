@@ -48,31 +48,16 @@
         <url>https://github.com/yuzongyou/commonspring-boot/issues</url>
     </issueManagement>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-milestone</id>
-            <name>Spring Milestone</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-snapshot</id>
-            <name>Spring Snapshot</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <url>https://repo.rdc.aliyun.com/repository/50061-snapshot-UrZ7WW/</url>
+        </snapshotRepository>
+        <repository>
+            <id>rdc-snapshots</id>
+            <url>https://repo.rdc.aliyun.com/repository/50061-snapshot-UrZ7WW/</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>

@@ -11,16 +11,205 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>commonspring-boot-bom</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-dependencies</artifactId>
-            <version>${spring.boot.version}</version>
-            <scope>import</scope>
-            <type>pom</type>
-        </dependency>
-    </dependencies>
+    <!--版本参数-->
+    <properties>
+        <commomproject.version>1.0-SNAPSHOT</commomproject.version>
+        <java.version>1.8</java.version>
+        <common.disruptor.version>1.0.1</common.disruptor.version>
+        <platform.bom.version>Cairo-SR2</platform.bom.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spring.version>5.0.7.RELEASE</spring.version>
+
+        <druid.version>1.1.9</druid.version>
+        <c3p0.version>0.9.5.2</c3p0.version>
+        <tomcat.jdbc.version>8.5.24</tomcat.jdbc.version>
+
+        <redis.client.version>2.9.0</redis.client.version>
+        <com.github.yuzongyou.version>1.0-SNAPSHOT</com.github.yuzongyou.version>
+
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+
+           <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+               <version>${platform.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <!--以下操作方便各个starter版本统一-->
+            <dependency>
+                <groupId>com.myspringboot.commonspringboot</groupId>
+                <artifactId>commonspring-boot-parent</artifactId>
+                <version>${commomproject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.myspringboot.commonspringboot</groupId>
+                <artifactId>commonspring-boot</artifactId>
+                <version>${commomproject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.myspringboot.commonspringboot</groupId>
+                <artifactId>commonspring-boot-autoconfigure</artifactId>
+                <version>${commomproject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.myspringboot.commonspringboot</groupId>
+                <artifactId>commonspring-boot-starter</artifactId>
+                <version>${commomproject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.myspringboot.commonspringboot</groupId>
+                <artifactId>commonspring-boot-jdbc-starter</artifactId>
+                <version>${commomproject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.myspringboot.commonspringboot</groupId>
+                <artifactId>commonspring-boot-web-starter</artifactId>
+                <version>${commomproject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.yuzongyou</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${com.github.yuzongyou.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>${c3p0.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>tomcat-jdbc</artifactId>
+                <version>${tomcat.jdbc.version}</version>
+            </dependency>
+
+            <!--redis-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${redis.client.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>3.0.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.0.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>flatten-maven-plugin</artifactId>
+                    <version>${flatten-maven-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerVersion>${java.version}</compilerVersion>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

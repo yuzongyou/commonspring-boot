@@ -16,6 +16,8 @@
 
     <modules>
         <module>commonspring-boot</module>
+        <module>commonspring-boot-starters</module>
+        <module>commonspring-boot-autoconfigure</module>
     </modules>
 
 

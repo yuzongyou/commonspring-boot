@@ -1,0 +1,7 @@
+# Initializers
+org.springframework.boot.SpringApplicationRunListener=\
+com.commonspringboot.autoconfigure.jdbc.CommonJdbcConfigApplicationRunListener
+
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.commonspringboot.autoconfigure.jdbc.CommonJdbcAutoConfiguration
